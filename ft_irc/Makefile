@@ -3,7 +3,7 @@ CPPC= c++
 
 NAME= ircserv
 
-CPPFLAGS= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS= -Wall -Wextra -Werror -g -std=c++98
 
 SRC= main.cpp Server.cpp CustomException.cpp Parse_PortPW.cpp
 
@@ -14,7 +14,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 		$(CPPC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp Server.hpp CustomException.hpp
+%.o: %.cpp Server.hpp CustomException.hpp Client.hpp
 	$(CPPC) $(CPPFLAGS) -c $< -o $@
 
 clean:

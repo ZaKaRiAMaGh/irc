@@ -3,30 +3,33 @@
 
 #include "Server.hpp" 
 
-class client{
+class Client{
     private:
+        Client& operator=(const Client& other);
+        // client() //parameterize
+    
+    public:
+        Client(const Client& other){
+            (void) other;
+        };    
         std::string Name;
         std::string Pass;
+        std::string realName;
+        std::string UserName;
         int         isRegistered;
+        int         ClientSocketfd;
+        bool        hasPass;
+        bool        hasUserName;
+        bool        hasName;
+        bool        hasrealName;
+        sockaddr_in ClientAddress;
+        
+        Client(){
 
-        client(const client& other);
-        client& operator=(const client& other);
+        };
+        ~Client(){
 
-    public:
-        client(); // default constructor;
-        // client() //parameterize
-        ~client();
-
-        // getters :
-        std::string& getName() const;
-        std::string& getPass() const;
-        int          getisRegistered() const;
-
-        // setters :
-        void         setName(std::string newName);
-        void         setPass(std::string newPass);
-        void         setRegistered();
-
+       };
 };
 
 #endif
